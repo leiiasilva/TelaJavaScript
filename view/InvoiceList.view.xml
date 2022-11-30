@@ -1,0 +1,81 @@
+<mvc:View
+		controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
+		xmlns="sap.m"
+		xmlns:mvc="sap.ui.core.mvc">
+	<Table
+		id="invoiceList"
+		class="sapUiResponsiveMargin"
+		width="auto"
+		items="{
+			path : 'invoice>/ListaDeLivros',
+			sorter : {
+				path : 'ShipperName',
+				group : true
+			}
+		}">
+		<headerToolbar>
+			<Toolbar>
+				<Button
+					id="botaoCadastrar"
+					icon="sap-icon://add"
+					text="{i18n>botaoCadastrar}"
+					press=".onOpenDialog"
+					class="sapUiSmallMarginEnd"/>
+				<ToolbarSpacer/>
+				<SearchField width="50%" search=".onFilterListaDeLivros"/>
+			</Toolbar>
+		</headerToolbar>
+		<columns>
+			<Column
+				
+				minScreenWidth="Small"
+				demandPopin="true"
+				width="7em">
+				<Text text="{i18n>colunaID}"/>
+			</Column>
+			<Column>
+				<Text text="{i18n>colunaNome}"/>
+			</Column>
+			<Column
+				minScreenWidth="Small"
+				demandPopin="true">
+				<Text text="{i18n>colunaAutor}"/>
+			</Column>
+			<Column
+				minScreenWidth="Tablet"
+				demandPopin="false">
+				<Text text="{i18n>colunaEditora}"/>
+			</Column>
+			<Column
+				hAlign="End">
+				<Text text="{i18n>colunaAnoPublicacao}"/>
+			</Column>
+		</columns>
+		<items>
+			<ColumnListItem
+				type="Navigation"
+				press=".onPress">
+				<cells>
+					<ObjectNumber number="{invoice>Quantity}" emphasized="false"/>
+					<ObjectIdentifier title="{invoice>ProductName}"/>
+					<Text text="{
+						path: 'invoice>Status',
+						formatter: '.formatter.statusText'
+					}"/>
+					<Text text="{invoice>ShipperName}"/>
+					<ObjectNumber
+						number="{
+							parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
+							type: 'sap.ui.model.type.Currency',
+							formatOptions: {
+								showMeasure: false
+							}
+						}"
+						unit="{view>/currency}"
+						state="{= ${invoice>ExtendedPrice} > 8 ? 'Error' : 'Success' }"/>
+				</cells>
+			</ColumnListItem>
+		</items>
+	</Table>
+
+</mvc:View>
