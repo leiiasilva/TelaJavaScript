@@ -9,7 +9,7 @@
 		items="{
 			path : 'invoice>/ListaDeLivros',
 			sorter : {
-				path : 'ShipperName',
+				path : 'LivroEditora',
 				group : true
 			}
 		}">
@@ -17,7 +17,7 @@
 			<Toolbar>
 				<Button
 					id="botaoCadastrar"
-					icon="sap-icon://add"
+					icon="sap-icon://create-form"
 					text="{i18n>botaoCadastrar}"
 					press=".onOpenDialog"
 					class="sapUiSmallMarginEnd"/>
@@ -27,10 +27,9 @@
 		</headerToolbar>
 		<columns>
 			<Column
-				
 				minScreenWidth="Small"
 				demandPopin="true"
-				width="7em">
+				width="10em">
 				<Text text="{i18n>colunaID}"/>
 			</Column>
 			<Column>
@@ -47,7 +46,7 @@
 				<Text text="{i18n>colunaEditora}"/>
 			</Column>
 			<Column
-				hAlign="End">
+				hAlign="">
 				<Text text="{i18n>colunaAnoPublicacao}"/>
 			</Column>
 		</columns>
@@ -56,23 +55,13 @@
 				type="Navigation"
 				press=".onPress">
 				<cells>
-					<ObjectNumber number="{invoice>Quantity}" emphasized="false"/>
-					<ObjectIdentifier title="{invoice>ProductName}"/>
+					<ObjectNumber number="{invoice>Código}" emphasized="false"/>
+					<ObjectIdentifier title="{invoice>NomeLivro}"/>
 					<Text text="{
 						path: 'invoice>Status',
 						formatter: '.formatter.statusText'
 					}"/>
-					<Text text="{invoice>ShipperName}"/>
-					<ObjectNumber
-						number="{
-							parts: [{path: 'invoice>ExtendedPrice'}, {path: 'view>/currency'}],
-							type: 'sap.ui.model.type.Currency',
-							formatOptions: {
-								showMeasure: false
-							}
-						}"
-						unit="{view>/currency}"
-						state="{= ${invoice>ExtendedPrice} > 8 ? 'Error' : 'Success' }"/>
+					<Text text="{invoice>LivroEditora}"/>
 				</cells>
 			</ColumnListItem>
 		</items>
