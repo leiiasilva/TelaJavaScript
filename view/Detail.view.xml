@@ -1,4 +1,4 @@
-<mvc:View
+<!-- <mvc:View
 	controllerName="sap.ui.demo.walkthrough.controller.Detail"
 	xmlns="sap.m"
 	xmlns:mvc="sap.ui.core.mvc"
@@ -12,4 +12,4 @@
 			title="{invoice>NomeLivro}"/>
 			<wt:ProductRating id="rating" class="sapUiSmallMarginBeginEnd" change=".onRatingChange"/>
 	</Page>
-</mvc:View>
+</mvc:View> -->

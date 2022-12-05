@@ -7,7 +7,7 @@
 		class="sapUiResponsiveMargin"
 		width="auto"
 		items="{
-			path : 'invoice>/ListaDeLivros',
+			path : 'invoice>/InvoiceList',
 			sorter : {
 				path : 'LivroEditora',
 				group : true
@@ -22,7 +22,7 @@
 					press=".onOpenDialog"
 					class="sapUiSmallMarginEnd"/>
 				<ToolbarSpacer/>
-				<SearchField width="50%" search=".onFilterListaDeLivros"/>
+				<SearchField width="50%" search=".onFilterInvoiceList"/>
 			</Toolbar>
 		</headerToolbar>
 		<columns>
@@ -55,13 +55,8 @@
 				type="Navigation"
 				press=".onPress">
 				<cells>
-					<ObjectNumber number="{invoice>Código}" emphasized="false"/>
-					<ObjectIdentifier title="{invoice>NomeLivro}"/>
-					<Text text="{
-						path: 'invoice>Status',
-						formatter: '.formatter.statusText'
-					}"/>
-					<Text text="{invoice>LivroEditora}"/>
+					
+					
 				</cells>
 			</ColumnListItem>
 		</items>

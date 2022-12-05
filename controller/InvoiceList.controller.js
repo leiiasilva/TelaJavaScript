@@ -8,34 +8,7 @@ sap.ui.define([
 	"use strict";
 
 	return Controller.extend("sap.ui.demo.walkthrough.controller.InvoiceList", {
-        formatter: formatter,
-		onInit : function () {
-			var oViewModel = new JSONModel({
-				currency: "BR"
-			});
-			this.getView().setModel(oViewModel, "view");
-		},
-		onFilterListaDeLivros : function (oEvent) {
-
-			
-			var aFilter = [];
-			var sQuery = oEvent.getParameter("query");
-			if (sQuery) {
-				aFilter.push(new Filter("NomeLivro", FilterOperator.Contains, sQuery));
-			}
-
-			
-			var oList = this.byId("invoiceList");
-			var oBinding = oList.getBinding("items");
-			oBinding.filter(aFilter);
-		},
-		onPress: function (oEvent) {
-			var oItem = oEvent.getSource();
-			var oRouter = this.getOwnerComponent().getRouter();
-			oRouter.navTo("detail",{
-				invoicePath: window.encodeURIComponent(oItem.getBindingContext("invoice").getPath().substr(1))
-			});
-		}
+      
 
 	});
 });
