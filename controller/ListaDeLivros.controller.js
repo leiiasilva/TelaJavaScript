@@ -9,7 +9,6 @@ sap.ui.define([
 
 	return Controller.extend("sap.ui.demo.walkthrough.controller.ListaDeLivros", {
 
-		
 
 		botaoCadastrar : function (){ //ao clicar no botão cadastrar
 			var oRouter = this.getOwnerComponent().getRouter();
