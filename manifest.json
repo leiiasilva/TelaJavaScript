@@ -14,16 +14,8 @@
 		"description": "{{descricaoDoAplicativo}}",
 		"applicationVersion": {
 			"version": "1.0.0"
-		},
-		"dataSources": {
-			"invoiceRemote": {
-				"uri": "https://services.odata.org/V2/Northwind/Northwind.svc/",
-				"type": "OData",
-				"settings": {
-					"odataVersion": "2.0"
-				}
-			}
 		}
+		
 	},
 	"sap.ui": {
 		"technology": "UI5",
@@ -56,19 +48,9 @@
 					],
 					"fallbackLocale": ""
 				}
-			},
-			"invoice": {
-				"type": "sap.ui.model.json.JSONModel",
-         "uri": "ListaDeLivros.json"
 			}
 		},
-		"resources": {
-			"css": [
-				{
-					"uri": "css/style.css"
-				}
-			]
-		},
+		
 		"routing": {
 			"config": {
 				"routerClass": "sap.m.routing.Router",
@@ -85,9 +67,9 @@
 					"target": "overview"
 				},
 				{
-					"pattern": "detail/{invoicePath}",
-					"name": "detail",
-					"target": "detail"
+					"pattern": "telaCadastro",
+					"name": "telaCadastro",
+					"target": "telaCadastro"
 				}
 			],
 			"targets": {
@@ -95,9 +77,9 @@
 					"id": "overview",
 					"name": "Overview"
 				},
-				"detail": {
-					"id": "detail",
-					"name": "Detail"
+				"telaCadastro": {
+					"id": "telaCadastro",
+					"name": "TelaCadastro"
 				}
 			}
 		}

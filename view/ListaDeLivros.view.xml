@@ -1,13 +1,14 @@
 <mvc:View
-		controllerName="sap.ui.demo.walkthrough.controller.InvoiceList"
+		controllerName="sap.ui.demo.walkthrough.controller.ListaDeLivros"
 		xmlns="sap.m"
 		xmlns:mvc="sap.ui.core.mvc">
 	<Table
-		id="invoiceList"
+		id="listaDeLivros"
 		class="sapUiResponsiveMargin"
 		width="auto"
+		mode="MultiSelect"
 		items="{
-			path : 'invoice>/ListaDeLivros',
+			path : 'listaDeLivros>/ListaDeLivros',
 			sorter : {
 				path : 'LivroEditora',
 				group : true
@@ -15,18 +16,17 @@
 		}">
 		<headerToolbar>
 			<Toolbar>
-				<Button
-					id="botaoCadastrar"
-					icon="sap-icon://create-form"
-					text="{i18n>botaoCadastrar}"
-					press=".onOpenDialog"
-					class="sapUiSmallMarginEnd"/>
+			<SearchField width="30%" search=".onFilterListaDeLivros"/>
 				<ToolbarSpacer/>
-				<SearchField width="50%" search=".onFilterListaDeLivros"/>
+				<Button type="Navigation"  icon="sap-icon://create-form" text="Cadastrar" press=".botaoCadastrar"/>
+				<Button type="Navigation" text="Editar"  press=".botaoEditar" icon="sap-icon://edit" />
+				<Button type="Navigation" text="Deletar"  press=".botaoDeletar" icon="sap-icon://delete" />
+				
 			</Toolbar>
 		</headerToolbar>
 		<columns>
 			<Column
+				id="tabelaLivros"
 				minScreenWidth="Small"
 				demandPopin="true"
 				width="10em">
@@ -55,13 +55,8 @@
 				type="Navigation"
 				press=".onPress">
 				<cells>
-					<ObjectNumber number="{invoice>Código}" emphasized="false"/>
-					<ObjectIdentifier title="{invoice>NomeLivro}"/>
-					<Text text="{
-						path: 'invoice>Status',
-						formatter: '.formatter.statusText'
-					}"/>
-					<Text text="{invoice>LivroEditora}"/>
+					
+					
 				</cells>
 			</ColumnListItem>
 		</items>
